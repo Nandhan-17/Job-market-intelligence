@@ -651,17 +651,11 @@ export function predictSalary(
     India-oriented INR equivalent.
   */
 
-  const USD_TO_INR = 84;
-
-  const baseUSD =
+  const baseINR =
     role.minSalary +
-    (role.maxSalary - role.minSalary) *
-      0.35;
+    (role.maxSalary - role.minSalary) * 0.35;
 
-  const indiaBaseSalary =
-    baseUSD *
-    USD_TO_INR *
-    0.12;
+  const indiaBaseSalary = baseINR;
 
   const locationData =
     getIndiaLocationData(location);
@@ -703,16 +697,7 @@ export function predictSalary(
       );
 
     if (dbSkill) {
-      /*
-        Convert salary boost into
-        Indian market equivalent.
-      */
-
-      skillBonus +=
-        dbSkill.salaryBoost *
-        USD_TO_INR *
-        0.12 *
-        0.30;
+      skillBonus += (dbSkill.salaryBoost || 50000) * 0.35;
     }
   });
 

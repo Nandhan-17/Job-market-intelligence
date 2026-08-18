@@ -55,39 +55,39 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#051424] text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col font-sans selection:bg-[#4285F4] selection:text-white">
       {/* Top Navbar */}
-      <header className="sticky top-0 z-40 bg-[#051424]/90 backdrop-blur-md border-b border-slate-800/80 px-4 lg:px-8 py-3.5 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-4 lg:px-8 py-3 flex items-center justify-between shadow-xs">
         <div className="flex items-center gap-3">
           <div
             onClick={() => setActiveTab('welcome')}
             className="cursor-pointer flex items-center gap-3 group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-sky-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4285F4] via-[#34A853] to-[#FBBC05] flex items-center justify-center text-white shadow-md shadow-blue-500/15 group-hover:scale-105 transition-transform">
               <Sparkles className="w-6 h-6 animate-pulse" />
             </div>
             <div>
-              <div className="text-lg font-extrabold font-display tracking-tight text-white flex items-center gap-1.5">
-                SkillPulse <span className="text-cyan-400 font-mono text-xs font-bold px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30">AI</span>
+              <div className="text-lg font-extrabold font-display tracking-tight text-slate-900 flex items-center gap-1.5">
+                SkillPulse <span className="text-[#4285F4] font-mono text-xs font-bold px-2 py-0.5 rounded bg-[#4285F4]/10 border border-[#4285F4]/20">SOUTH INDIA</span>
               </div>
-              <div className="text-[10px] text-slate-400 font-mono">Job Market Intelligence & Skill-Gap Predictor</div>
+              <div className="text-[10px] text-slate-500 font-mono">Job Market Intelligence & Skill-Gap Predictor</div>
             </div>
           </div>
         </div>
 
         {/* Current Active Goal Badge */}
-        <div className="hidden md:flex items-center gap-3 px-4 py-1.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs">
-          <span className="text-slate-400 font-mono">Target Role:</span>
-          <span className="font-bold text-cyan-400">{targetRole.title}</span>
-          <span className="text-slate-600">•</span>
-          <span className="text-emerald-400 font-mono font-bold">{userProfile.currentSkills.length} Verified Skills</span>
+        <div className="hidden md:flex items-center gap-3 px-4 py-1.5 rounded-xl bg-white/90 border border-slate-200 text-xs shadow-xs">
+          <span className="text-slate-500 font-mono">Target Role:</span>
+          <span className="font-bold text-[#4285F4]">{targetRole.title}</span>
+          <span className="text-slate-300">•</span>
+          <span className="text-[#34A853] font-mono font-bold">{userProfile.currentSkills.length} Verified Skills</span>
         </div>
 
         {/* Mobile menu trigger */}
         <div className="md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-slate-900 text-slate-300 hover:text-white"
+            className="p-2 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-slate-900"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -95,8 +95,8 @@ export default function App() {
       </header>
 
       {/* Main Secondary Sub-header Navigation Bar */}
-      <div className="bg-[#091929] border-b border-slate-800/80 px-4 lg:px-8 py-2 overflow-x-auto shadow-inner">
-        <div className="flex items-center gap-1 min-w-max max-w-7xl mx-auto">
+      <div className="bg-white/60 backdrop-blur-md border-b border-slate-200/80 px-4 lg:px-8 py-2 overflow-x-auto">
+        <div className="flex items-center gap-1.5 min-w-max max-w-7xl mx-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -109,11 +109,11 @@ export default function App() {
                 }}
                 className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
                   isActive
-                    ? "bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 border border-cyan-500/50 text-cyan-300 shadow-md shadow-cyan-950/40"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+                    ? "bg-[#4285F4]/10 border border-[#4285F4]/30 text-[#4285F4] font-bold shadow-xs"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 border border-transparent"
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? "text-cyan-400" : "text-slate-500"}`} />
+                <Icon className={`w-4 h-4 ${isActive ? "text-[#4285F4]" : "text-slate-400"}`} />
                 <span>{item.label}</span>
               </button>
             );

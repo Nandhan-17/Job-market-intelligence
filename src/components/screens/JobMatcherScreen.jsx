@@ -32,14 +32,14 @@ export default function JobMatcherScreen({ userProfile, onOpenSkillModal }) {
   return (
     <div className="space-y-8 max-w-6xl mx-auto py-2">
       {/* Header */}
-      <div className="p-6 rounded-2xl glass-panel border-cyan-500/20 bg-gradient-to-br from-slate-900 via-[#0d1e30] to-slate-900 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="p-6 rounded-2xl glass-panel border-[#4285F4]/20 bg-gradient-to-br from-white via-blue-50/40 to-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono">
-            <Zap className="w-3.5 h-3.5" /> REAL-TIME JOB DESCRIPTION MATCH ENGINE
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4285F4]/10 border border-[#4285F4]/20 text-[#4285F4] text-xs font-mono font-bold">
+            <Zap className="w-3.5 h-3.5" /> REAL-TIME JOB MATCH ENGINE
           </div>
-          <h2 className="text-3xl font-extrabold text-white font-display">Live Job Posting Scanner & Matcher</h2>
-          <p className="text-slate-400 text-sm">
-            Paste any job description from LinkedIn, Indeed, or company sites. Extract required skills and verify your exact match score instantenously.
+          <h2 className="text-3xl font-extrabold text-slate-900 font-display">South India Job Posting Matcher</h2>
+          <p className="text-slate-600 text-sm">
+            Paste any job description from TechPulse India, LinkedIn, or enterprise career portals. Extract required skills and verify your exact match score instantaneously.
           </p>
         </div>
       </div>
@@ -47,17 +47,17 @@ export default function JobMatcherScreen({ userProfile, onOpenSkillModal }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Column: Job Description Input */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="p-6 rounded-2xl glass-panel space-y-4">
+          <div className="p-6 rounded-2xl glass-panel bg-white/80 border-slate-200 space-y-4">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-mono text-slate-400 uppercase">Paste Job Description Text</label>
+              <label className="text-xs font-mono text-slate-600 uppercase font-semibold">Paste Job Description Text</label>
               <button
                 onClick={() => {
                   setJobText(SAMPLE_JOB_DESCRIPTION);
                   handleAnalyzeJob(SAMPLE_JOB_DESCRIPTION);
                 }}
-                className="text-xs text-cyan-400 hover:underline font-mono"
+                className="text-xs text-[#4285F4] hover:underline font-mono font-bold cursor-pointer"
               >
-                Load Sample Job Posting
+                Load Sample India Job Posting
               </button>
             </div>
 
@@ -66,13 +66,13 @@ export default function JobMatcherScreen({ userProfile, onOpenSkillModal }) {
               onChange={(e) => setJobText(e.target.value)}
               rows={12}
               placeholder="Paste job posting contents here..."
-              className="w-full p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 focus:border-cyan-500 outline-none leading-relaxed resize-none"
+              className="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-900 focus:border-[#4285F4] outline-none leading-relaxed resize-none"
             ></textarea>
 
             <button
               onClick={() => handleAnalyzeJob(jobText)}
               disabled={isAnalyzing}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all"
+              className="w-full py-3.5 rounded-xl bg-[#4285F4] hover:bg-blue-600 text-white font-bold text-sm shadow-md shadow-blue-500/20 flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <Sparkles className="w-4 h-4" /> {isAnalyzing ? "Scanning Job Description..." : "Analyze Job Requirements & Candidate Fit"}
             </button>
@@ -82,32 +82,32 @@ export default function JobMatcherScreen({ userProfile, onOpenSkillModal }) {
         {/* Right Column: Analysis Results */}
         <div className="lg:col-span-6 space-y-6">
           {analyzed ? (
-            <div className="p-6 rounded-2xl glass-panel space-y-6 animate-fadeIn">
+            <div className="p-6 rounded-2xl glass-panel bg-white/80 border-slate-200 space-y-6 animate-fadeIn">
               {/* Score Header */}
-              <div className="p-4 rounded-xl bg-slate-900 border border-cyan-500/30 flex items-center justify-between">
+              <div className="p-4 rounded-xl bg-slate-50 border border-[#4285F4]/30 flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-mono text-slate-400 uppercase">Candidate Role Match</div>
-                  <div className="text-3xl font-extrabold text-cyan-400 font-display">{analyzed.fitScore}% Fit Score</div>
+                  <div className="text-xs font-mono text-slate-500 uppercase font-semibold">Candidate Role Match</div>
+                  <div className="text-3xl font-extrabold text-[#4285F4] font-display">{analyzed.fitScore}% Fit Score</div>
                 </div>
-                <div className="text-right text-xs font-mono text-slate-300">
+                <div className="text-right text-xs font-mono text-slate-600 font-semibold">
                   <div>{analyzed.matched.length} Matched Skills</div>
-                  <div className="text-rose-400">{analyzed.missing.length} Missing Gaps</div>
+                  <div className="text-[#EA4335]">{analyzed.missing.length} Missing Gaps</div>
                 </div>
               </div>
 
               {/* Missing Skills */}
               <div className="space-y-3">
-                <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                  <AlertTriangle className="w-4 h-4 text-rose-400" />
+                <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-[#EA4335]" />
                   Missing Required Skills for this Job ({analyzed.missing.length})
                 </h4>
 
                 {analyzed.missing.map((s, idx) => (
-                  <div key={idx} className="p-3 rounded-xl bg-slate-900 border border-rose-500/30 flex items-center justify-between">
-                    <span className="text-sm font-semibold text-slate-200">{s.name}</span>
+                  <div key={idx} className="p-3 rounded-xl bg-red-50/50 border border-[#EA4335]/30 flex items-center justify-between">
+                    <span className="text-sm font-semibold text-slate-900">{s.name}</span>
                     <button
                       onClick={() => onOpenSkillModal(s.name, "Target Job Posting")}
-                      className="text-xs font-mono text-cyan-400 hover:underline"
+                      className="text-xs font-mono text-[#4285F4] font-bold hover:underline cursor-pointer"
                     >
                       Why Learn? →
                     </button>
@@ -117,14 +117,14 @@ export default function JobMatcherScreen({ userProfile, onOpenSkillModal }) {
 
               {/* Matched Skills */}
               <div className="space-y-3">
-                <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#34A853]" />
                   Matched Candidate Skills ({analyzed.matched.length})
                 </h4>
 
                 <div className="flex flex-wrap gap-2">
                   {analyzed.matched.map((s, idx) => (
-                    <span key={idx} className="px-3 py-1 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
+                    <span key={idx} className="px-3 py-1 rounded-lg bg-emerald-50 border border-[#34A853]/30 text-[#34A853] text-xs font-mono font-bold">
                       ✓ {s.name}
                     </span>
                   ))}
@@ -132,10 +132,10 @@ export default function JobMatcherScreen({ userProfile, onOpenSkillModal }) {
               </div>
             </div>
           ) : (
-            <div className="p-12 rounded-2xl glass-panel text-center text-slate-400 space-y-3 border-dashed border-slate-800">
-              <Briefcase className="w-12 h-12 text-slate-600 mx-auto" />
-              <h4 className="text-base font-bold text-slate-300">No Job Description Analyzed Yet</h4>
-              <p className="text-xs max-w-sm mx-auto">
+            <div className="p-12 rounded-2xl glass-panel bg-white/80 border-slate-200 text-center text-slate-500 space-y-3 border-dashed">
+              <Briefcase className="w-12 h-12 text-slate-400 mx-auto" />
+              <h4 className="text-base font-bold text-slate-800">No Job Description Analyzed Yet</h4>
+              <p className="text-xs max-w-sm mx-auto text-slate-500">
                 Paste a job posting on the left and click "Analyze Job Requirements" to test your candidate fit score.
               </p>
             </div>
