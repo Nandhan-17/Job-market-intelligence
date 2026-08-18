@@ -4,98 +4,220 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
   body {
-    background-color: #051424;
-    color: #e2e8f0;
+    margin: 0;
+    background:
+      radial-gradient(circle at 10% 10%, rgba(66, 133, 244, 0.08), transparent 28%),
+      radial-gradient(circle at 90% 15%, rgba(52, 168, 83, 0.07), transparent 25%),
+      radial-gradient(circle at 50% 100%, rgba(251, 188, 5, 0.06), transparent 30%),
+      #f8fafc;
+    color: #202124;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: 100vh;
   }
 }
 
-/* Custom Glassmorphism & Neon Glow Utilities */
+/* =========================================
+   CRYSTAL / LIQUID GLASS
+   ========================================= */
+
 .glass-panel {
-  background: rgba(18, 33, 49, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 8px 30px rgba(60, 64, 67, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
 }
 
 .glass-panel-hover {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
+
 .glass-panel-hover:hover {
-  background: rgba(28, 43, 60, 0.85);
-  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(66, 133, 244, 0.25);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 189, 248, 0.1);
+  box-shadow:
+    0 14px 35px rgba(60, 64, 67, 0.12),
+    0 0 25px rgba(66, 133, 244, 0.08);
 }
 
 .glass-card-interactive {
-  background: rgba(13, 28, 45, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.2s ease-in-out;
-}
-.glass-card-interactive:hover {
-  background: rgba(28, 43, 60, 0.8);
-  border-color: rgba(52, 211, 153, 0.4);
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow:
+    0 5px 20px rgba(60, 64, 67, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+.glass-card-interactive:hover {
+  background: rgba(255, 255, 255, 0.78);
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 28px rgba(60, 64, 67, 0.1),
+    0 0 18px rgba(66, 133, 244, 0.06);
+}
+
+/* =========================================
+   GOOGLE-INSPIRED GRADIENT TEXT
+   ========================================= */
+
 .gradient-text-cyan-indigo {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  background: linear-gradient(
+    135deg,
+    #4285f4 0%,
+    #5f6368 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .gradient-text-emerald-cyan {
-  background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+  background: linear-gradient(
+    135deg,
+    #34a853 0%,
+    #4285f4 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .gradient-text-amber-rose {
-  background: linear-gradient(135deg, #fbbf24 0%, #fb7185 100%);
+  background: linear-gradient(
+    135deg,
+    #fbbc05 0%,
+    #ea4335 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+/* =========================================
+   GOOGLE-INSPIRED GLOWS
+   ========================================= */
+
 .glow-cyan {
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  box-shadow:
+    0 0 24px rgba(66, 133, 244, 0.18),
+    0 8px 25px rgba(60, 64, 67, 0.08);
 }
 
 .glow-emerald {
-  box-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+  box-shadow:
+    0 0 24px rgba(52, 168, 83, 0.18),
+    0 8px 25px rgba(60, 64, 67, 0.08);
 }
 
-/* Custom Scrollbar */
+/* =========================================
+   GLASS INPUTS / SELECTS
+   ========================================= */
+
+input,
+select,
+textarea {
+  background: rgba(255, 255, 255, 0.72);
+  color: #202124;
+  border: 1px solid rgba(95, 99, 104, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #4285f4;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.12);
+}
+
+select option {
+  background: #ffffff;
+  color: #202124;
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR
+   ========================================= */
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #051424;
-}
-::-webkit-scrollbar-thumb {
-  background: #1c2b3c;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: rgba(241, 243, 244, 0.7);
 }
 
-/* Radar & Chart helper overlays */
+::-webkit-scrollbar-thumb {
+  background: rgba(95, 99, 104, 0.3);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4285f4;
+}
+
+/* =========================================
+   CHART
+   ========================================= */
+
 .chart-container-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-/* Shimmer Loader */
+/* =========================================
+   LIQUID SHIMMER
+   ========================================= */
+
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
+
 .animate-shimmer {
-  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.03) 75%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.2) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.8s infinite;
 }
