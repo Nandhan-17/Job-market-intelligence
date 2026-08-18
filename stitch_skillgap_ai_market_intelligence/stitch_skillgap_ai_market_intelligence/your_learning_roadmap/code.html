@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personalized Learning Roadmap - SkillPulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#0f172a",
+                      "on-primary-container": "#798098",
+                      "surface-variant": "#273647",
+                      "tertiary-container": "#050060",
+                      "secondary-container": "#03c6b2",
+                      "surface-dim": "#051424",
+                      "inverse-primary": "#565e74",
+                      "surface-bright": "#2c3a4c",
+                      "tertiary-fixed-dim": "#c0c1ff",
+                      "outline": "#909097",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#c6c6cd",
+                      "surface-container": "#122131",
+                      "on-secondary-fixed-variant": "#005047",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-background": "#d4e4fa",
+                      "on-tertiary-container": "#6d70fb",
+                      "on-tertiary-fixed": "#07006c",
+                      "secondary-fixed": "#62fae3",
+                      "inverse-surface": "#d4e4fa",
+                      "tertiary": "#c0c1ff",
+                      "on-primary-fixed": "#131b2e",
+                      "background": "#051424",
+                      "inverse-on-surface": "#233143",
+                      "on-surface": "#d4e4fa",
+                      "on-primary": "#283044",
+                      "on-secondary-fixed": "#00201c",
+                      "on-error": "#690005",
+                      "surface-container-high": "#1c2b3c",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#dae2fd",
+                      "surface-tint": "#bec6e0",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#051424",
+                      "outline-variant": "#45464d",
+                      "secondary-fixed-dim": "#3cddc7",
+                      "on-secondary": "#003731",
+                      "surface-container-low": "#0d1c2d",
+                      "on-tertiary": "#1000a9",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "tertiary-fixed": "#e1e0ff",
+                      "surface-container-lowest": "#010f1f",
+                      "surface-container-highest": "#273647",
+                      "on-tertiary-fixed-variant": "#2f2ebe",
+                      "secondary": "#44e2cd",
+                      "on-secondary-container": "#004d44",
+                      "primary": "#bec6e0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "md": "16px",
+                      "gutter": "16px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "base": "4px",
+                      "container-margin": "20px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Inter"],
+                      "data-mono": ["JetBrains Mono"],
+                      "body-base": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-md-mobile": ["Inter"],
+                      "label-caps": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-base": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom Utilities for the specific design system requirements */
+        .glass-layer {
+            background-color: rgba(99, 102, 241, 0.1); /* Indigo tint */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .inner-glow-border {
+            border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+            border-left: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-border-image {
+            border: 1px solid transparent;
+            background-image: linear-gradient(to right, #0F172A, #0F172A), linear-gradient(to right, #4f46e5, #2DD4BF);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, #2DD4BF 0%, #2DD4BF 50%, #4f46e5 100%);
+        }
+        .dotted-border {
+            border: 2px dotted #4f46e5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-base antialiased min-h-screen pb-24 md:pb-0 pt-16 selection:bg-secondary/30 selection:text-secondary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-gutter h-16 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-white/10 shadow-sm">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="bubble_chart">bubble_chart</span>
+</button>
+<h1 class="font-display-lg text-headline-md-mobile font-bold text-secondary tracking-tight">SkillPulse</h1>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-container-margin md:px-16 pt-8 pb-12">
+<!-- Header Section -->
+<section class="mb-12 relative rounded-2xl overflow-hidden glass-layer inner-glow-border p-6 md:p-10 gradient-border-image">
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary mb-4">
+<span class="material-symbols-outlined text-[16px]" data-icon="route">route</span>
+<span class="font-label-caps text-label-caps">AI-Generated Pathway</span>
+</div>
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface mb-2">Advanced Cloud Architecture</h2>
+<p class="text-on-surface-variant max-w-2xl">Your personalized roadmap to close the gap between your current Senior Backend Developer role and Cloud Architect requirements based on market trends.</p>
+</div>
+<div class="flex flex-col items-end gap-2 text-right">
+<span class="font-data-mono text-data-mono text-on-surface-variant">Est. Completion</span>
+<div class="font-headline-md text-headline-md text-secondary">12 Weeks</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-secondary w-1/4 rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Container -->
+<div class="relative">
+<!-- Continuous Line (Desktop) -->
+<div class="hidden md:block absolute left-8 top-8 bottom-0 timeline-line z-0"></div>
+<!-- Timeline Nodes -->
+<div class="flex flex-col gap-8 md:gap-12 relative z-10">
+<!-- Node 1: Completed -->
+<div class="flex flex-col md:flex-row gap-4 md:gap-8 group">
+<div class="flex items-center md:items-start gap-4 md:gap-0 shrink-0 md:w-24 relative">
+<!-- Mobile Line Segment -->
+<div class="md:hidden absolute left-[15px] top-8 bottom-[-2rem] w-[2px] bg-secondary z-[-1]"></div>
+<!-- Marker -->
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(45,212,191,0.4)] z-10">
+<span class="material-symbols-outlined text-[#0F172A] text-[18px]" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="md:hidden font-data-mono text-data-mono text-secondary">Week 1-2</div>
+</div>
+<div class="flex-1 bg-surface-container-high inner-glow-border rounded-xl p-6 transition-transform hover:-translate-y-1 duration-300">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="hidden md:inline-block font-data-mono text-data-mono text-secondary mb-2">Week 1-2 • Completed</span>
+<h3 class="font-headline-md-mobile text-headline-md-mobile text-on-surface">AWS Certified Solutions Architect Fundamentals</h3>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<p class="text-on-surface-variant mb-4">Mastered core services: EC2, S3, RDS, and VPC networking basics.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded bg-secondary/10 text-secondary font-label-caps text-label-caps border border-secondary/20">Compute</span>
+<span class="px-2 py-1 rounded bg-secondary/10 text-secondary font-label-caps text-label-caps border border-secondary/20">Storage</span>
+</div>
+</div>
+</div>
+<!-- Node 2: In Progress (Active) -->
+<div class="flex flex-col md:flex-row gap-4 md:gap-8 group">
+<div class="flex items-center md:items-start gap-4 md:gap-0 shrink-0 md:w-24 relative">
+<!-- Mobile Line Segment -->
+<div class="md:hidden absolute left-[15px] top-8 bottom-[-2rem] w-[2px] bg-gradient-to-b from-secondary to-indigo-500 z-[-1]"></div>
+<!-- Marker -->
+<div class="w-8 h-8 rounded-full border-2 border-secondary bg-surface-container-high flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(45,212,191,0.2)] z-10 relative">
+<div class="w-3 h-3 rounded-full bg-secondary animate-pulse"></div>
+</div>
+<div class="md:hidden font-data-mono text-data-mono text-primary">Week 3-5</div>
+</div>
+<div class="flex-1 glass-layer inner-glow-border rounded-xl p-6 relative overflow-hidden gradient-border-image ring-1 ring-secondary/30 shadow-[0_4px_30px_rgba(99,102,241,0.1)] transition-transform hover:-translate-y-1 duration-300">
+<!-- AI Confidence Badge -->
+<div class="absolute top-4 right-4 bg-[#0F172A] border border-indigo-500/30 rounded px-2 py-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-400 text-[14px]" data-icon="model_training">model_training</span>
+<span class="font-data-mono text-data-mono text-indigo-400">92% Match</span>
+</div>
+<div class="flex justify-between items-start mb-4 pr-24">
+<div>
+<span class="hidden md:inline-block font-data-mono text-data-mono text-primary mb-2">Week 3-5 • In Progress</span>
+<h3 class="font-headline-md-mobile text-headline-md-mobile text-on-surface">Kubernetes Orchestration &amp; Microservices</h3>
+</div>
+</div>
+<p class="text-on-surface-variant mb-6">Practical implementation of container orchestration. Focus on scaling, self-healing, and service discovery.</p>
+<div class="bg-[#0F172A]/50 rounded-lg p-4 border border-white/5 mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-data-mono text-data-mono text-on-surface">Current Module: Deployment Strategies</span>
+<span class="font-data-mono text-data-mono text-secondary">60%</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[60%] rounded-full"></div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-300 font-label-caps text-label-caps border border-indigo-500/20">K8s</span>
+<span class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-300 font-label-caps text-label-caps border border-indigo-500/20">Docker</span>
+<span class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-300 font-label-caps text-label-caps border border-indigo-500/20">CI/CD</span>
+</div>
+<button class="w-full sm:w-auto bg-[#2DD4BF] text-[#0F172A] font-label-caps text-label-caps px-6 py-2.5 rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+                                Continue Course
+                            </button>
+</div>
+</div>
+</div>
+<!-- Node 3: Upcoming (Gap Indicator) -->
+<div class="flex flex-col md:flex-row gap-4 md:gap-8 group opacity-70 hover:opacity-100 transition-opacity">
+<div class="flex items-center md:items-start gap-4 md:gap-0 shrink-0 md:w-24 relative">
+<!-- Mobile Line Segment -->
+<div class="md:hidden absolute left-[15px] top-8 bottom-[-2rem] w-[2px] bg-surface-container-high z-[-1]"></div>
+<!-- Marker -->
+<div class="w-8 h-8 rounded-full bg-surface-container-high border 2px border-surface-variant flex items-center justify-center shrink-0 z-10">
+<div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+</div>
+<div class="md:hidden font-data-mono text-data-mono text-on-surface-variant">Week 6-8</div>
+</div>
+<div class="flex-1 bg-surface-container-high/50 inner-glow-border dotted-border rounded-xl p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="hidden md:inline-block font-data-mono text-data-mono text-on-surface-variant mb-2">Week 6-8 • Recommended Project</span>
+<h3 class="font-headline-md-mobile text-headline-md-mobile text-on-surface">Serverless Event-Driven Architecture</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lock">lock</span>
+</div>
+<p class="text-on-surface-variant mb-4">Build a real-time data processing pipeline using AWS Lambda, EventBridge, and DynamoDB to solidify cloud-native concepts.</p>
+<a class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-data-mono text-data-mono transition-colors" href="#">
+                            View Project Details
+                            <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-lg border-t border-white/5 shadow-2xl rounded-t-full">
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-label-caps text-label-caps mt-1">Trends</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim relative after:content-[''] after:absolute after:-top-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps mt-1">AI Recs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

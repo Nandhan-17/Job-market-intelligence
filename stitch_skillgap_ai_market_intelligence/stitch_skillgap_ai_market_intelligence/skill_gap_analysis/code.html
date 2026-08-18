@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skill Gap Analysis - SkillPulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#0f172a",
+                        "on-primary-container": "#798098",
+                        "surface-variant": "#273647",
+                        "tertiary-container": "#050060",
+                        "secondary-container": "#03c6b2",
+                        "surface-dim": "#051424",
+                        "inverse-primary": "#565e74",
+                        "surface-bright": "#2c3a4c",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "outline": "#909097",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#c6c6cd",
+                        "surface-container": "#122131",
+                        "on-secondary-fixed-variant": "#005047",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-background": "#d4e4fa",
+                        "on-tertiary-container": "#6d70fb",
+                        "on-tertiary-fixed": "#07006c",
+                        "secondary-fixed": "#62fae3",
+                        "inverse-surface": "#d4e4fa",
+                        "tertiary": "#c0c1ff",
+                        "on-primary-fixed": "#131b2e",
+                        "background": "#051424",
+                        "inverse-on-surface": "#233143",
+                        "on-surface": "#d4e4fa",
+                        "on-primary": "#283044",
+                        "on-secondary-fixed": "#00201c",
+                        "on-error": "#690005",
+                        "surface-container-high": "#1c2b3c",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#dae2fd",
+                        "surface-tint": "#bec6e0",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#051424",
+                        "outline-variant": "#45464d",
+                        "secondary-fixed-dim": "#3cddc7",
+                        "on-secondary": "#003731",
+                        "surface-container-low": "#0d1c2d",
+                        "on-tertiary": "#1000a9",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary-fixed": "#e1e0ff",
+                        "surface-container-lowest": "#010f1f",
+                        "surface-container-highest": "#273647",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "secondary": "#44e2cd",
+                        "on-secondary-container": "#004d44",
+                        "primary": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "container-margin": "20px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-base": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-md-mobile": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-base": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Subtle Inner Glow for cards */
+        .card-glow {
+            box-shadow: inset 0.5px 0.5px 0px 0px rgba(255, 255, 255, 0.1);
+        }
+        
+        /* AI Insight Layer */
+        .ai-layer {
+            backdrop-filter: blur(12px);
+            background: rgba(109, 112, 251, 0.05); /* Indigo tint */
+        }
+        
+        /* Custom scrollbar for horizontal lists */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar (Desktop Only) -->
+<header class="hidden md:flex bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl fixed top-0 w-full border-b border-white/10 shadow-sm flex items-center justify-between px-gutter h-16 w-full z-50">
+<div class="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="bubble_chart">bubble_chart</span>
+</div>
+<div class="font-display-lg text-headline-md-mobile font-bold text-secondary tracking-tight">
+            SkillPulse
+        </div>
+<div class="flex items-center gap-6">
+<nav class="flex gap-6 font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Trends</a>
+<a class="text-secondary hover:opacity-80 transition-opacity relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-secondary after:rounded-full" href="#">AI Recs</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Profile</a>
+</nav>
+<div class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full pt-6 md:pt-24 pb-24 md:pb-32 px-container-margin md:px-12 lg:px-24">
+<div class="max-w-7xl mx-auto space-y-xl">
+<!-- Page Header -->
+<header class="flex flex-col gap-sm">
+<div class="flex items-center gap-2 text-secondary font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-sm">target</span> Target Role: Senior Data Engineer
+                </div>
+<h1 class="font-headline-md-mobile md:font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface tracking-tight">
+                    Skill Gap Analysis
+                </h1>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-2xl">
+                    Comparing your current verified skills against real-time market demands for Senior Data Engineering roles. Critical gaps identified below.
+                </p>
+</header>
+<!-- AI Insight Summary (Glassmorphism) -->
+<section class="ai-layer border-l-2 border-secondary rounded-xl p-md md:p-lg flex flex-col md:flex-row gap-lg items-start md:items-center justify-between shadow-lg">
+<div class="flex gap-md items-start">
+<div class="p-2 rounded-full bg-secondary/10 text-secondary mt-1">
+<span class="material-symbols-outlined fill-icon" data-icon="psychology">psychology</span>
+</div>
+<div>
+<h3 class="font-body-base text-body-base font-semibold text-on-surface">AI Market Insight</h3>
+<p class="font-body-base text-body-base text-on-surface-variant mt-1 text-sm">
+                            Your core Python and SQL skills are highly competitive, but the market heavily favors candidates with production-level Cloud and Data Streaming experience for this role tier.
+                        </p>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-data-mono text-data-mono text-on-surface-variant">Match Score</span>
+<div class="font-headline-md-mobile text-headline-md-mobile text-secondary mt-1 flex items-baseline gap-1">
+                        68<span class="text-sm">%</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid: The Comparison -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter md:gap-lg">
+<!-- What You Have (Current State) -->
+<div class="col-span-1 lg:col-span-5 bg-surface-container card-glow rounded-xl p-md border border-outline-variant flex flex-col">
+<div class="flex items-center justify-between mb-md border-b border-outline-variant/50 pb-sm">
+<h2 class="font-body-base text-body-base font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">person</span>
+                            What You Have
+                        </h2>
+</div>
+<div class="flex-1 space-y-4">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Core Proficiencies</span>
+<div class="flex flex-wrap gap-2">
+<span class="bg-primary/10 text-primary font-label-caps text-label-caps px-2 py-1 rounded-sm border border-primary/20">Python</span>
+<span class="bg-primary/10 text-primary font-label-caps text-label-caps px-2 py-1 rounded-sm border border-primary/20">SQL</span>
+<span class="bg-primary/10 text-primary font-label-caps text-label-caps px-2 py-1 rounded-sm border border-primary/20">Airflow</span>
+<span class="bg-primary/10 text-primary font-label-caps text-label-caps px-2 py-1 rounded-sm border border-primary/20">Docker</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Gap Analysis Priority List -->
+<div class="col-span-1 lg:col-span-7 flex flex-col gap-md">
+<div class="flex items-center justify-between mb-1">
+<h2 class="font-body-base text-body-base font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-sm">warning</span>
+                            Critical Missing Skills
+                        </h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Market Demand</span>
+</div>
+<!-- Gap Item 1: Cloud Architecture -->
+<div class="bg-surface-container-high rounded-xl p-4 border border-error/30 card-glow relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-body-base text-body-base font-semibold text-error">Cloud Architecture</h3>
+<span class="bg-error/10 text-error font-label-caps text-label-caps px-1.5 py-0.5 rounded-sm border border-dotted border-error/50">Missing</span>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant text-sm">Required for scalable infrastructure design. Highly requested in 92% of target job postings.</p>
+</div>
+<div class="flex items-center gap-6 shrink-0">
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Priority Score</span>
+<span class="font-data-mono text-data-mono text-error font-bold mt-1">98/100</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex justify-end">
+<button class="bg-secondary text-on-secondary hover:brightness-110 transition-all active:scale-95 duration-150 font-label-caps text-label-caps px-4 py-2 rounded-full flex items-center gap-2">
+                                Find Learning Path <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Gap Item 2: Pandas (Wait, usually Pandas is Data Science, but let's stick to prompt) -->
+<div class="bg-surface-container-high rounded-xl p-4 border border-error/20 card-glow relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error/70"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-body-base text-body-base font-semibold text-error/90">Advanced Pandas</h3>
+<span class="bg-error/10 text-error font-label-caps text-label-caps px-1.5 py-0.5 rounded-sm border border-dotted border-error/50">Gap</span>
+</div>
+<p class="font-body-base text-body-base text-on-surface-variant text-sm">Expected deep knowledge for complex data transformations before ingestion.</p>
+</div>
+<div class="flex items-center gap-6 shrink-0">
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Priority Score</span>
+<span class="font-data-mono text-data-mono text-error/90 font-bold mt-1">85/100</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex justify-end">
+<button class="border border-secondary text-secondary hover:bg-secondary/10 transition-colors active:scale-95 duration-150 font-label-caps text-label-caps px-4 py-2 rounded-full flex items-center gap-2">
+                                Explore Resources
+                            </button>
+</div>
+</div>
+<!-- Secondary Gap Item (Less critical) -->
+<div class="bg-surface-container rounded-xl p-4 border border-outline-variant border-dotted flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">trending_down</span>
+<span class="font-body-base text-body-base text-on-surface-variant">Kafka / Event Streaming</span>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface-variant">Score: 62</span>
+</div>
+</div>
+</div>
+<!-- Global Action -->
+<div class="flex justify-center pt-md">
+<button class="bg-secondary text-on-secondary font-label-caps text-label-caps px-8 py-4 rounded-full shadow-lg shadow-secondary/20 hover:brightness-110 active:scale-95 transition-all duration-200 flex items-center gap-2">
+<span class="material-symbols-outlined fill-icon">auto_awesome</span> Generate Custom Learning Path
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-lg fixed bottom-0 w-full rounded-t-full shadow-2xl border-t border-white/5 flex justify-around items-center px-4 py-3 pb-safe z-50">
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps text-[10px]">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="trending_up">trending_up</span>
+<span class="font-label-caps text-label-caps text-[10px]">Trends</span>
+</a>
+<!-- Active Tab: AI Recs (Because Gap Analysis drives recommendations) -->
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim relative after:content-[''] after:absolute after:-top-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1 fill-icon" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-caps text-label-caps text-[10px]">AI Recs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

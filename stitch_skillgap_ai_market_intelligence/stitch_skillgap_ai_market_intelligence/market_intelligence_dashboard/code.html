@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Job Market Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#0f172a",
+                      "on-primary-container": "#798098",
+                      "surface-variant": "#273647",
+                      "tertiary-container": "#050060",
+                      "secondary-container": "#03c6b2",
+                      "surface-dim": "#051424",
+                      "inverse-primary": "#565e74",
+                      "surface-bright": "#2c3a4c",
+                      "tertiary-fixed-dim": "#c0c1ff",
+                      "outline": "#909097",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#c6c6cd",
+                      "surface-container": "#122131",
+                      "on-secondary-fixed-variant": "#005047",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-background": "#d4e4fa",
+                      "on-tertiary-container": "#6d70fb",
+                      "on-tertiary-fixed": "#07006c",
+                      "secondary-fixed": "#62fae3",
+                      "inverse-surface": "#d4e4fa",
+                      "tertiary": "#c0c1ff",
+                      "on-primary-fixed": "#131b2e",
+                      "background": "#051424",
+                      "inverse-on-surface": "#233143",
+                      "on-surface": "#d4e4fa",
+                      "on-primary": "#283044",
+                      "on-secondary-fixed": "#00201c",
+                      "on-error": "#690005",
+                      "surface-container-high": "#1c2b3c",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#dae2fd",
+                      "surface-tint": "#bec6e0",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#051424",
+                      "outline-variant": "#45464d",
+                      "secondary-fixed-dim": "#3cddc7",
+                      "on-secondary": "#003731",
+                      "surface-container-low": "#0d1c2d",
+                      "on-tertiary": "#1000a9",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "tertiary-fixed": "#e1e0ff",
+                      "surface-container-lowest": "#010f1f",
+                      "surface-container-highest": "#273647",
+                      "on-tertiary-fixed-variant": "#2f2ebe",
+                      "secondary": "#44e2cd",
+                      "on-secondary-container": "#004d44",
+                      "primary": "#bec6e0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "md": "16px",
+                      "gutter": "16px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "base": "4px",
+                      "container-margin": "20px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "body-base": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-md-mobile": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-base": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "30px",
+                              {
+                                      "lineHeight": "38px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #0F172A; /* Deep Navy Level 0 Base */
+        }
+        .ai-glass {
+            background: rgba(79, 70, 229, 0.1); /* Indigo 10% */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .surface-card {
+            background-color: #1E293B; /* Slate-900 Level 1 */
+            border-top: 0.5px solid rgba(255, 255, 255, 0.1); /* Inner glow */
+            border-left: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+        .ai-border {
+            border: 1px solid transparent;
+            background: linear-gradient(#1E293B, #1E293B) padding-box,
+                        linear-gradient(to right, #4f46e5, #2dd4bf) border-box; /* Indigo to Teal */
+        }
+        /* Mobile safe area padding for bottom nav */
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        
+        /* Material symbols setup */
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface font-body-base antialiased min-h-screen pb-24 md:pb-8 pt-20">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-white/10 shadow-sm fixed top-0 w-full flex items-center justify-between px-gutter h-16 w-full z-50">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150 cursor-pointer">bubble_chart</span>
+<span class="font-display-lg text-headline-md-mobile font-bold text-secondary tracking-tight">SkillPulse</span>
+</div>
+<div class="hidden md:flex items-center gap-md">
+<!-- Desktop Nav Links (Derived from BottomNav labels, highlighting Dashboard) -->
+<a class="font-label-caps text-label-caps text-secondary flex flex-col items-center justify-center text-secondary-fixed-dim relative after:content-[''] after:absolute after:-bottom-2 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:opacity-80 transition-opacity" href="#">Dashboard</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Trends</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:opacity-80 transition-opacity" href="#">AI Recs</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Profile</a>
+</div>
+<span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150 cursor-pointer">psychology</span>
+</header>
+<main class="container mx-auto px-container-margin md:px-lg lg:px-xl max-w-7xl">
+<!-- Header Section -->
+<div class="mb-lg mt-sm flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="font-headline-md-mobile md:font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface mb-xs">Senior Frontend Engineer</h1>
+<p class="font-body-base text-body-base text-on-surface-variant">San Francisco, CA • Remote Hybrid</p>
+</div>
+<button class="bg-[#2DD4BF] text-[#0F172A] hover:brightness-110 px-md py-sm rounded transition-all font-body-base text-body-base font-semibold self-start md:self-auto flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+                Detailed Analysis
+            </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Market Fit Score (AI Insight Card) -->
+<div class="md:col-span-4 surface-card ai-glass ai-border rounded-xl p-md relative flex flex-col justify-between min-h-[200px]">
+<div class="flex justify-between items-start mb-md">
+<h2 class="font-body-base text-body-base text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">auto_awesome</span>
+                        Market Fit Score
+                    </h2>
+<span class="font-data-mono text-data-mono text-secondary">High Confidence</span>
+</div>
+<div class="flex items-end gap-md">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">78%</span>
+<div class="mb-sm flex items-center text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+<span class="font-data-mono text-data-mono ml-1">+4% vs last month</span>
+</div>
+</div>
+<div class="w-full bg-[#0F172A] h-2 mt-md rounded-full overflow-hidden">
+<div class="bg-[#2DD4BF] h-full rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+<!-- Target Role Demand Chart (Main Data Canvas) -->
+<div class="md:col-span-8 surface-card rounded-xl p-md min-h-[300px] flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-body-base text-body-base font-semibold text-on-surface">Target Role Demand (12 Mo)</h2>
+<select class="bg-[#0F172A] border border-slate-700 text-on-surface rounded text-sm px-sm py-1 focus:border-[#2DD4BF] focus:ring-1 focus:ring-[#2DD4BF] focus:outline-none outline-none">
+<option>National</option>
+<option>Local (SF)</option>
+</select>
+</div>
+<!-- Mock Chart Area -->
+<div class="flex-grow relative w-full h-full min-h-[200px] border-b border-l border-slate-700 pb-sm pl-sm flex items-end pt-lg">
+<!-- Y Axis Labels -->
+<div class="absolute left-[-30px] bottom-0 h-full flex flex-col justify-between text-xs text-on-surface-variant font-data-mono">
+<span>10k</span>
+<span>5k</span>
+<span>0</span>
+</div>
+<!-- SVG Chart Line (Mock) -->
+<svg class="absolute inset-0 w-full h-full ml-sm mb-sm overflow-visible" preserveaspectratio="none" viewbox="0 0 100 100">
+<path class="vector-effect-non-scaling-stroke" d="M0,80 Q10,75 20,60 T40,50 T60,30 T80,25 T100,10" fill="none" stroke="#2DD4BF" stroke-width="2"></path>
+<!-- Grid lines -->
+<line stroke="#273647" stroke-dasharray="2,2" stroke-width="0.5" x1="0" x2="100" y1="50" y2="50"></line>
+<!-- Data Points -->
+<circle cx="20" cy="60" fill="#1E293B" r="1.5" stroke="#2DD4BF" stroke-width="1"></circle>
+<circle cx="60" cy="30" fill="#1E293B" r="1.5" stroke="#2DD4BF" stroke-width="1"></circle>
+<circle cx="100" cy="10" fill="#1E293B" r="1.5" stroke="#2DD4BF" stroke-width="1"></circle>
+</svg>
+<!-- X Axis Labels -->
+<div class="absolute bottom-[-25px] w-full flex justify-between text-xs text-on-surface-variant font-data-mono pr-sm">
+<span>Jan</span>
+<span>Apr</span>
+<span>Jul</span>
+<span>Oct</span>
+<span>Dec</span>
+</div>
+</div>
+</div>
+<!-- Top Hot Skills -->
+<div class="md:col-span-12 surface-card rounded-xl p-md mt-md">
+<h2 class="font-body-base text-body-base font-semibold text-on-surface mb-md">Top 3 Hot Skills</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-sm">
+<!-- Skill 1 -->
+<div class="bg-[#0F172A] rounded-lg p-sm border border-slate-800 flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-secondary/10 flex items-center justify-center text-secondary font-data-mono text-xs">1</div>
+<div>
+<h3 class="font-body-base text-body-base text-on-surface">React/Next.js</h3>
+<span class="font-data-mono text-xs text-on-surface-variant">Required in 82% of posts</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">trending_up</span>
+</div>
+<!-- Skill 2 -->
+<div class="bg-[#0F172A] rounded-lg p-sm border border-slate-800 flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-secondary/10 flex items-center justify-center text-secondary font-data-mono text-xs">2</div>
+<div>
+<h3 class="font-body-base text-body-base text-on-surface">TypeScript</h3>
+<span class="font-data-mono text-xs text-on-surface-variant">Required in 75% of posts</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">trending_up</span>
+</div>
+<!-- Skill 3 -->
+<div class="bg-[#0F172A] rounded-lg p-sm border border-slate-800 flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-secondary/10 flex items-center justify-center text-secondary font-data-mono text-xs">3</div>
+<div>
+<h3 class="font-body-base text-body-base text-on-surface flex items-center gap-xs">
+                                     GraphQL
+                                     <span class="px-1 py-0.5 rounded text-[10px] font-data-mono bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Emerging</span>
+</h3>
+<span class="font-data-mono text-xs text-on-surface-variant">Required in 45% of posts</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">trending_up</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-lg rounded-t-full border-t border-white/5 shadow-2xl fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim relative after:content-[''] after:absolute after:-top-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined icon-fill">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Dashboard</span>
+</a>
+<!-- Trends (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-label-caps text-label-caps mt-1">Trends</span>
+</a>
+<!-- AI Recs (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-caps text-label-caps mt-1">AI Recs</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-primary-container hover:text-secondary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

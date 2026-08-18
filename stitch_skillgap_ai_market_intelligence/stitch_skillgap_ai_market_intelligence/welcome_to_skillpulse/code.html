@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillPulse - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#0f172a",
+                        "on-primary-container": "#798098",
+                        "surface-variant": "#273647",
+                        "tertiary-container": "#050060",
+                        "secondary-container": "#03c6b2",
+                        "surface-dim": "#051424",
+                        "inverse-primary": "#565e74",
+                        "surface-bright": "#2c3a4c",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "outline": "#909097",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#c6c6cd",
+                        "surface-container": "#122131",
+                        "on-secondary-fixed-variant": "#005047",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-background": "#d4e4fa",
+                        "on-tertiary-container": "#6d70fb",
+                        "on-tertiary-fixed": "#07006c",
+                        "secondary-fixed": "#62fae3",
+                        "inverse-surface": "#d4e4fa",
+                        "tertiary": "#c0c1ff",
+                        "on-primary-fixed": "#131b2e",
+                        "background": "#051424",
+                        "inverse-on-surface": "#233143",
+                        "on-surface": "#d4e4fa",
+                        "on-primary": "#283044",
+                        "on-secondary-fixed": "#00201c",
+                        "on-error": "#690005",
+                        "surface-container-high": "#1c2b3c",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#dae2fd",
+                        "surface-tint": "#bec6e0",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#051424",
+                        "outline-variant": "#45464d",
+                        "secondary-fixed-dim": "#3cddc7",
+                        "on-secondary": "#003731",
+                        "surface-container-low": "#0d1c2d",
+                        "on-tertiary": "#1000a9",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary-fixed": "#e1e0ff",
+                        "surface-container-lowest": "#010f1f",
+                        "surface-container-highest": "#273647",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "secondary": "#44e2cd",
+                        "on-secondary-container": "#004d44",
+                        "primary": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "container-margin": "20px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-base": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-md-mobile": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-base": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+            border-left: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+        .ai-glow {
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+        }
+        .bg-cyber-pattern {
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(45, 212, 191, 0.1), transparent 25%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-base bg-cyber-pattern overflow-x-hidden relative">
+<!-- Ambient Background Graphic (Placeholder for AI inspired background) -->
+<div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center pointer-events-none mix-blend-screen" data-alt="A highly abstract, dark, futuristic network visualization. Glowing nodes connected by delicate cyan and indigo lines float in a deep navy void. Subtle, out-of-focus bokeh effects suggest immense depth. The lighting is low-key, evoking a sense of advanced artificial intelligence and complex data structures being processed quietly in the background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFZulmQfkjiTi4H9_t7LtuOYAALfni0xadzRoRocdroa1d9aR_VTmsuGveQwr5b9zfgxcG78eCqukFYKKWSv47W4nYj9-LRi_1-pEoPFQd8uE_j68e6DyaTPzdMYfxhzVQ9MCzBKePCG-9vTBprY61WKxruhNzE-IgWBxfNtfeViWEMeFdEx466YiI2EjwoqrdQCrMRacSKUVdyZZzeqDKlxVlq8BbY7dEsETczPhXPYwwKBRtQY3B')"></div>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col justify-center items-center px-container-margin md:px-xl z-10 w-full max-w-md mx-auto">
+<!-- Logo / Brand Area -->
+<div class="mb-12 text-center w-full animate-fade-in-up">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant/30 mb-6 ai-glow">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">bubble_chart</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-secondary mb-2 tracking-tight">SkillPulse</h1>
+<p class="font-headline-md-mobile text-headline-md-mobile text-on-surface-variant font-medium">Bridge your skill gap.</p>
+</div>
+<!-- Login Form Card -->
+<div class="glass-panel w-full rounded-xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+<!-- Decorative border glow -->
+<div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50"></div>
+<form class="space-y-6">
+<!-- Email Input -->
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="email">Work Email</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">mail</span>
+</span>
+<input class="w-full bg-surface-container-lowest border border-surface-container-high rounded-lg py-3 pl-10 pr-4 text-on-surface placeholder-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/50 transition-all duration-200" id="email" placeholder="jane@company.com" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant" for="password">Password</label>
+<a class="font-label-caps text-label-caps text-secondary hover:text-secondary-fixed transition-colors" href="#">Forgot?</a>
+</div>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">lock</span>
+</span>
+<input class="w-full bg-surface-container-lowest border border-surface-container-high rounded-lg py-3 pl-10 pr-4 text-on-surface placeholder-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/50 transition-all duration-200" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-[#2DD4BF] hover:brightness-110 text-on-primary-fixed rounded-lg py-3 px-4 font-headline-md-mobile text-[16px] leading-[24px] tracking-wide transition-all duration-200 shadow-[0_0_15px_rgba(45,212,191,0.2)] flex justify-center items-center gap-2 mt-2" type="button">
+                    Get Started
+                    <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="mt-8 mb-6 flex items-center text-on-surface-variant">
+<div class="flex-grow border-t border-surface-container-high"></div>
+<span class="px-4 font-label-caps text-label-caps">Or continue with</span>
+<div class="flex-grow border-t border-surface-container-high"></div>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 bg-surface-container-high hover:bg-surface-bright border border-outline-variant/30 rounded-lg py-2.5 transition-colors duration-200" type="button">
+<svg aria-hidden="true" class="w-5 h-5 text-on-surface" fill="currentColor" viewbox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"></path></svg>
+<span class="font-data-mono text-data-mono">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 bg-surface-container-high hover:bg-surface-bright border border-outline-variant/30 rounded-lg py-2.5 transition-colors duration-200" type="button">
+<svg aria-hidden="true" class="w-5 h-5 text-on-surface" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+<span class="font-data-mono text-data-mono">GitHub</span>
+</button>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="mt-8 text-center text-on-surface-variant font-label-caps text-label-caps">
+<p>By getting started, you agree to our <a class="text-secondary hover:underline" href="#">Terms</a> and <a class="text-secondary hover:underline" href="#">Privacy Policy</a>.</p>
+</div>
+</main>
+<!-- Navigation Suppressed as per rule: Linear/Transactional intent (Login/Onboarding) -->
+</body></html>
